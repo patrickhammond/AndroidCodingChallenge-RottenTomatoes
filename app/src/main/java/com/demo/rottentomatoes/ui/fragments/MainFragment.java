@@ -3,6 +3,7 @@ package com.demo.rottentomatoes.ui.fragments;
 import android.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +25,35 @@ import java.util.List;
 
 public class MainFragment extends ListFragment {
 
+    private static final String EXTRA_BOX_OFFICE = "boxOffice";
+
+    private BoxOffice boxOffice;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null && savedInstanceState.containsKey(EXTRA_BOX_OFFICE)) {
+            boxOffice = (BoxOffice) savedInstanceState.getSerializable(EXTRA_BOX_OFFICE);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (boxOffice != null) {
+            outState.putSerializable(EXTRA_BOX_OFFICE, boxOffice);
+        }
+    }
+
     @Override
     public void onResume() {
         super.onResume();
         EventBus.getInstance().register(this);
 
-        EventBus.getInstance().post(new GetBoxOfficeRequest());
+        if (boxOffice == null) {
+            EventBus.getInstance().post(new GetBoxOfficeRequest());
+        }
     }
 
     @Override
