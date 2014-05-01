@@ -13,8 +13,7 @@ Lessons learned:
 - It would be nice for the ViewHolder to be more tightly bound to a view...lost 10 min because I was still referencing an old view
 
 Follow ups:
-- Parceler had issues during the compile process tonight.  Need to figure that out and use @Parcel instead of Serializable
-- Landscape detail fragment has a scroll view, portrait did not.  Ran into some weird ClassCastExceptions on rotate.
+- Landscape detail fragment has a scroll view, portrait did not.  Ran into some weird ClassCastExceptions on rotate.  Not sure why...
 
 Don't follow this pattern:
 - The otherwise unmanged image cache living in the application scope is a bad idea!

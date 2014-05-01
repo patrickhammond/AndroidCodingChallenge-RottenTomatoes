@@ -1,8 +1,9 @@
 package com.demo.rottentomatoes.model;
 
-import java.io.Serializable;
+import org.parceler.Parcel;
 
-public class Movie implements Serializable {
+@Parcel
+public class Movie {
     public String title;
     public String mpaa_rating;
     public String synopsis;

@@ -1,8 +1,9 @@
 package com.demo.rottentomatoes.model;
 
-import java.io.Serializable;
+import org.parceler.Parcel;
 
-public class Posters implements Serializable {
+@Parcel
+public class Posters {
     public String thumbnail;
     public String profile;
     public String detailed;

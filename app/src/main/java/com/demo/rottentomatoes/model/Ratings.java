@@ -1,8 +1,9 @@
 package com.demo.rottentomatoes.model;
 
-import java.io.Serializable;
+import org.parceler.Parcel;
 
-public class Ratings implements Serializable {
+@Parcel
+public class Ratings {
     public int audience_score;
 
     public float getRelativeAudienceScore(int maxRange) {

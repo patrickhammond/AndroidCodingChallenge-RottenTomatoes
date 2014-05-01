@@ -1,8 +1,10 @@
 package com.demo.rottentomatoes.model;
 
-import java.io.Serializable;
+import org.parceler.Parcel;
+
 import java.util.List;
 
-public class BoxOffice implements Serializable {
+@Parcel
+public class BoxOffice {
     public List<Movie> movies;
 }

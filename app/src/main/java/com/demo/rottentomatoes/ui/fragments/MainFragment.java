@@ -20,6 +20,7 @@ import com.demo.rottentomatoes.model.Movie;
 import com.demo.rottentomatoes.ui.activities.DetailActivity;
 import com.demo.rottentomatoes.util.BindingAdapter;
 import com.squareup.otto.Subscribe;
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -35,7 +36,8 @@ public class MainFragment extends ListFragment {
         setRetainInstance(true);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(EXTRA_BOX_OFFICE)) {
-            boxOffice = (BoxOffice) savedInstanceState.getSerializable(EXTRA_BOX_OFFICE);
+
+            boxOffice = Parcels.unwrap(savedInstanceState.getParcelable(EXTRA_BOX_OFFICE));
         }
     }
 
@@ -43,7 +45,7 @@ public class MainFragment extends ListFragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if (boxOffice != null) {
-            outState.putSerializable(EXTRA_BOX_OFFICE, boxOffice);
+            outState.putParcelable(EXTRA_BOX_OFFICE, Parcels.wrap(boxOffice));
         }
     }
 

@@ -1,8 +1,9 @@
 package com.demo.rottentomatoes.model;
 
-import java.io.Serializable;
+import org.parceler.Parcel;
 
-public class Links implements Serializable {
+@Parcel
+public class Links {
     public String alternate;
 
     public String getTrailerUrl() {

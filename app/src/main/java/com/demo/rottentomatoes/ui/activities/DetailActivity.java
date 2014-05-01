@@ -11,13 +11,14 @@ import com.demo.rottentomatoes.EventBus;
 import com.demo.rottentomatoes.R;
 import com.demo.rottentomatoes.model.Movie;
 import com.squareup.otto.Produce;
+import org.parceler.Parcels;
 
 public class DetailActivity extends Activity {
     private static final String EXTRA_MOVIE = "movie";
 
     public static Intent buildIntent(Context context, Movie movie) {
         Intent intent = new Intent(context, DetailActivity.class);
-        intent.putExtra(EXTRA_MOVIE, movie);
+        intent.putExtra(EXTRA_MOVIE, Parcels.wrap(movie));
         return intent;
     }
 
@@ -30,7 +31,7 @@ public class DetailActivity extends Activity {
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        movie = (Movie) getIntent().getSerializableExtra(EXTRA_MOVIE);
+        movie = Parcels.unwrap(getIntent().getParcelableExtra(EXTRA_MOVIE));
     }
 
     @Override
