@@ -15,9 +15,6 @@ Lessons learned:
 Follow ups:
 - Landscape detail fragment has a scroll view, portrait did not.  Ran into some weird ClassCastExceptions on rotate.  Not sure why...
 
-Don't follow this pattern:
-- The otherwise unmanged image cache living in the application scope is a bad idea!
-
 If I had more time:
 - CWAC endless adapter would help with the infinite list
 
