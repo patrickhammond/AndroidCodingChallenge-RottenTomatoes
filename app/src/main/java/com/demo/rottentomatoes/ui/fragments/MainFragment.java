@@ -32,6 +32,7 @@ public class MainFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(EXTRA_BOX_OFFICE)) {
             boxOffice = (BoxOffice) savedInstanceState.getSerializable(EXTRA_BOX_OFFICE);
@@ -73,6 +74,8 @@ public class MainFragment extends ListFragment {
 
     @Subscribe
     public void handleBoxOffice(BoxOffice boxOffice) {
+        this.boxOffice = boxOffice;
+
         MoviesAdapter adapter = new MoviesAdapter(getActivity(), boxOffice.movies);
         setListAdapter(adapter);
     }
