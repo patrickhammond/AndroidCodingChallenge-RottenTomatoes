@@ -2,7 +2,6 @@ package com.demo.rottentomatoes.ui.fragments;
 
 import android.app.ListFragment;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +13,9 @@ import com.android.volley.toolbox.NetworkImageView;
 import com.demo.rottentomatoes.EventBus;
 import com.demo.rottentomatoes.MainApplication;
 import com.demo.rottentomatoes.R;
-import com.demo.rottentomatoes.api.GetBoxOfficeRequest;
+import com.demo.rottentomatoes.event.LoadBoxOffice;
 import com.demo.rottentomatoes.model.BoxOffice;
 import com.demo.rottentomatoes.model.Movie;
-import com.demo.rottentomatoes.ui.activities.DetailActivity;
 import com.demo.rottentomatoes.util.BindingAdapter;
 import com.squareup.otto.Subscribe;
 import org.parceler.Parcels;
@@ -36,7 +34,6 @@ public class MainFragment extends ListFragment {
         setRetainInstance(true);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(EXTRA_BOX_OFFICE)) {
-
             boxOffice = Parcels.unwrap(savedInstanceState.getParcelable(EXTRA_BOX_OFFICE));
         }
     }
@@ -55,7 +52,7 @@ public class MainFragment extends ListFragment {
         EventBus.getInstance().register(this);
 
         if (boxOffice == null) {
-            EventBus.getInstance().post(new GetBoxOfficeRequest());
+            EventBus.getInstance().post(new LoadBoxOffice());
         }
     }
 
@@ -68,10 +65,7 @@ public class MainFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Movie movie = (Movie) getListView().getItemAtPosition(position);
-
-        // Don't normally like to do fragment to activity navigation in fragments...
-        Intent intent = DetailActivity.buildIntent(getActivity(), movie);
-        getActivity().startActivity(intent);
+        EventBus.getInstance().post(movie);
     }
 
     @Subscribe
