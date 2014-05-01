@@ -1,3 +1,6 @@
+https://docs.google.com/presentation/d/1NH99nSZLzqNBxqdCkgmB77gDjOJ0r1fMCCwtM6Bz4fo/edit#slide=id.g945ce73_0_16
+
+
 - setListAdapter vs getListView().setAdapter() in a ListFragment
   use the first...the second will cost you time
 
