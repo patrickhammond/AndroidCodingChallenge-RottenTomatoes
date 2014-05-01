@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.demo.rottentomatoes.EventBus;
 import com.demo.rottentomatoes.MainApplication;
@@ -26,12 +27,17 @@ public class MainFragment extends ListFragment {
 
     private static final String EXTRA_BOX_OFFICE = "boxOffice";
 
+    private ImageLoader imageLoader;
+
     private BoxOffice boxOffice;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+
+        // Cache up to 10 images...
+        imageLoader = ((MainApplication) getActivity().getApplication()).buildImageLoader(10);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(EXTRA_BOX_OFFICE)) {
             boxOffice = Parcels.unwrap(savedInstanceState.getParcelable(EXTRA_BOX_OFFICE));
@@ -100,7 +106,7 @@ public class MainFragment extends ListFragment {
 
             viewHolder.title.setText(title);
             viewHolder.mpaaRating.setText(mpaaRating);
-            viewHolder.thumbnail.setImageUrl(thumbnailUrl, MainApplication.getImageLoader());
+            viewHolder.thumbnail.setImageUrl(thumbnailUrl, imageLoader);
             viewHolder.rating.setRating(rating);
         }
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.demo.rottentomatoes.EventBus;
 import com.demo.rottentomatoes.MainApplication;
@@ -15,11 +16,21 @@ import com.demo.rottentomatoes.model.Movie;
 import com.squareup.otto.Subscribe;
 
 public class DetailFragment extends Fragment {
+    private ImageLoader imageLoader;
+
     private NetworkImageView imageView;
     private TextView titleView;
     private TextView mpaaRatingView;
     private RatingBar ratingView;
     private TextView descriptionView;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // We will only show one image for the detail view...
+        imageLoader = ((MainApplication) getActivity().getApplication()).buildImageLoader(1);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -59,7 +70,7 @@ public class DetailFragment extends Fragment {
 
         titleView.setText(title);
         mpaaRatingView.setText(mpaaRating);
-        imageView.setImageUrl(imageUrl, MainApplication.getImageLoader());
+        imageView.setImageUrl(imageUrl, imageLoader);
         ratingView.setRating(rating);
         descriptionView.setText(description);
     }
