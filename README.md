@@ -1,45 +1,28 @@
+ Coding Challenge Notes
+---------------
+
+If you want to see where things were at at the end of the challenge, check out the 'end_of_time' tag.  The master branch
+has a more cleaned up version of the project.
+
+Presentation:
 https://docs.google.com/presentation/d/1NH99nSZLzqNBxqdCkgmB77gDjOJ0r1fMCCwtM6Bz4fo/edit#slide=id.g945ce73_0_16
 
+Lessons learned:
+- Use setListAdapter instead of getListView().setAdapter() in a ListFragment to save yourself some pain/bugs.
+- The current binding adapter could be simpler
+- It would be nice for the ViewHolder to be more tightly bound to a view...lost 10 min because I was still referencing an old view
 
-- setListAdapter vs getListView().setAdapter() in a ListFragment
-  use the first...the second will cost you time
+Follow ups:
+- Parceler had issues during the compile process tonight.  Need to figure that out and use @Parcel instead of Serializable
+- Landscape detail fragment has a scroll view, portrait did not.  Ran into some weird ClassCastExceptions on rotate.
 
-image cache living in the application scope = bad idea
-serializable vs parcelable
-listfragment loading transition on rotate displays which is deceiving
+Don't follow this pattern:
+- The otherwise unmanged image cache living in the application scope is a bad idea!
 
+If I had more time:
+- CWAC endless adapter would help with the infinite list
 
-
-- binding adapter could be better
-- would be nice for the viewholder to be tightly bound to a view...lost 10 min because I was still referrencing an old view
-
-- parceler has compile errors...not sure why.  Better than using serializible
-
-- figure out "not a fragment issues" based on what a fragment extends
-  had a scrollview in one, not in the other, weird crashes
-
-- scrollable list of movies with thumbnails
-- with a detail view
-- using fragments
-- persist data (sure...but via HTTP caching)
-- with landscape orientation for the detail view
-- "cache" for images, yep...but done poorly
-last box office movies saved on rotate
-- API timeouts tonight were annoying and killed 10-15 min thinking it was me
-
-- No infinite scrolling...out of time
-  - CWAC endless adapter to the rescue
-
-
-
-
-
-
-
-
-
-
-
+---------------
 
 
 
