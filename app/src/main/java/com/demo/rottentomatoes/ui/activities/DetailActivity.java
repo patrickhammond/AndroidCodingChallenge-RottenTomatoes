@@ -46,6 +46,10 @@ public class DetailActivity extends Activity {
         super.onPause();
     }
 
+    /**
+     * This really should be producing on an activity specific bus vs the application bus because it is only
+     * designed to provide the activity value to the fragments.
+     */
     @Produce
     public Movie produceMovie() {
         return movie;

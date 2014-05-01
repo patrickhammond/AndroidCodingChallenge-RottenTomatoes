@@ -35,12 +35,16 @@ public class DetailFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+
+        // For our current purposes we really only care about activity scoped events should be on a different bus
         EventBus.getInstance().register(this);
     }
 
     @Override
     public void onPause() {
+        // For our current purposes we really only care about activity scoped events should be on a different bus
         EventBus.getInstance().unregister(this);
+
         super.onPause();
     }
 
