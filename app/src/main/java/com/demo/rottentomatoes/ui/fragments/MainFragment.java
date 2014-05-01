@@ -94,7 +94,9 @@ public class MainFragment extends ListFragment {
             String title = item.title;
             String mpaaRating = item.mpaa_rating;
             String thumbnailUrl = item.posters.thumbnail;
-            float rating = item.ratings.getRelativeAudienceScore(5);
+
+            int stars = viewHolder.rating.getNumStars();
+            float rating = item.ratings.getRelativeAudienceScore(stars);
 
             viewHolder.title.setText(title);
             viewHolder.mpaaRating.setText(mpaaRating);

@@ -53,7 +53,8 @@ public class DetailFragment extends Fragment {
         String title = movie.title;
         String mpaaRating = movie.mpaa_rating;
         String imageUrl = movie.posters.profile;
-        float rating = movie.ratings.getRelativeAudienceScore(5);
+        int stars = ratingView.getNumStars();
+        float rating = movie.ratings.getRelativeAudienceScore(stars);
         String description = movie.synopsis;
 
         titleView.setText(title);
