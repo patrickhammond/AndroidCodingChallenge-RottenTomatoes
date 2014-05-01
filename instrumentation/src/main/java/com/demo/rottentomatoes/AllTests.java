@@ -1,4 +1,4 @@
-package PACKAGE_NAME;
+package com.demo.rottentomatoes;
 
 import android.test.suitebuilder.TestSuiteBuilder;
 import junit.framework.Test;

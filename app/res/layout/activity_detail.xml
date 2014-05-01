@@ -4,9 +4,9 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
     <fragment
-        android:id="@+id/fragment_main"
+        android:id="@+id/fragment_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.demo.rottentomatoes.ui.fragments.MainFragment" />
+        android:name="com.demo.rottentomatoes.ui.fragments.DetailFragment" />
 </LinearLayout>
 

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           android:versionCode="1"
           android:versionName="Development"
-          package="PACKAGE_NAME">
+          package="com.demo.rottentomatoes">
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -27,6 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.activities.DetailActivity"/>
 
         <meta-data
             android:name="com.crashlytics.ApiKey"

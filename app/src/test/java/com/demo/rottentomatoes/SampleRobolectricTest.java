@@ -1,4 +1,4 @@
-package PACKAGE_NAME;
+package com.demo.rottentomatoes;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,6 +10,6 @@ import org.robolectric.RobolectricTestRunner;
 public class SampleRobolectricTest {
     @Test
     public void testApplicationNameIsCorrect() throws Exception {
-        Assert.assertEquals("APP_NAME", Robolectric.application.getString(R.string.app_name));
+        Assert.assertEquals("Rotten Tomatoes", Robolectric.application.getString(R.string.app_name));
     }
 }

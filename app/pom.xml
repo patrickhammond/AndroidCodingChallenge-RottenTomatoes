@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>PACKAGE_NAME</groupId>
+        <groupId>com.demo.rottentomatoes</groupId>
         <artifactId>parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
@@ -12,7 +12,7 @@
     <artifactId>app</artifactId>
     <packaging>apk</packaging>
 
-    <name>APP_NAME - App</name>
+    <name>Rotten Tomatoes - App</name>
 
     <repositories>
         <repository>
