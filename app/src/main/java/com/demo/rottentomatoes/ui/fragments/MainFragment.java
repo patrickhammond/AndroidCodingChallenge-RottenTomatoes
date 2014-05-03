@@ -18,6 +18,7 @@ import com.demo.rottentomatoes.event.LoadBoxOffice;
 import com.demo.rottentomatoes.model.BoxOffice;
 import com.demo.rottentomatoes.model.Movie;
 import com.demo.rottentomatoes.util.BindingAdapter;
+import com.demo.rottentomatoes.util.BindingListAdapter;
 import com.squareup.otto.Subscribe;
 import org.parceler.Parcels;
 
@@ -82,12 +83,9 @@ public class MainFragment extends ListFragment {
         setListAdapter(adapter);
     }
 
-    private class MoviesAdapter extends BindingAdapter<Movie, ViewHolder> {
-        private final List<Movie> movies;
-
+    private class MoviesAdapter extends BindingListAdapter<Movie, ViewHolder> {
         private MoviesAdapter(Context context, List<Movie> movies) {
-            super(context);
-            this.movies = movies;
+            super(context, movies);
         }
 
         @Override
@@ -113,21 +111,6 @@ public class MainFragment extends ListFragment {
         @Override
         public ViewHolder buildViewHolder(View view) {
             return new ViewHolder(view);
-        }
-
-        @Override
-        public Movie getItem(int position) {
-            return movies.get(position);
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return i;
-        }
-
-        @Override
-        public int getCount() {
-            return movies.size();
         }
     }
 

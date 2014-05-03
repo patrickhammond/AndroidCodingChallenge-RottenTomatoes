@@ -12,6 +12,9 @@ import android.widget.BaseAdapter;
  *
  * Inspired by/baesd on Jake Wharton's BindingAdapter:
  * https://gist.github.com/JakeWharton/5423616
+ *
+ * @param <T> The type of item being displayed.
+ * @param <ViewHolder> The view holder type being used.
  */
 public abstract class BindingAdapter<T, ViewHolder> extends BaseAdapter {
     private final Context context;
