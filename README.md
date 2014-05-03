@@ -8,8 +8,7 @@ Presentation:
 https://docs.google.com/presentation/d/1NH99nSZLzqNBxqdCkgmB77gDjOJ0r1fMCCwtM6Bz4fo/edit#slide=id.g945ce73_0_16
 
 Lessons learned:
-- Use setListAdapter instead of getListView().setAdapter() in a ListFragment to save yourself some pain/bugs.
-- The current binding adapter could be simpler
+- Use setListAdapter instead of getListView().setAdapter() in a ListFragment to save yourself some pain/bugs.  Candidate Lint check?
 - It would be nice for the ViewHolder to be more tightly bound to a view...lost 10 min because I was still referencing an old view
 
 Follow ups:
@@ -20,6 +19,10 @@ If I had more time:
 
 ---------------
 
+Not sure if this is always needed, but you might also have to do this:
+- Module Settings -> Project -> Project SDK = Maven Android API 19 Platform
+- Module Settings -> Modules -> (for all modules) -> Module SDK = Maven Android API 19 Platform
+- Module Settings -> SDKs -> Select Maven Android API 19 Platform
 
 
 
