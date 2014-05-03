@@ -1,5 +1,6 @@
 package com.demo.rottentomatoes.api;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
@@ -18,7 +19,7 @@ public class ApiRequestHandler {
 
     @Subscribe
     public void handleLoadBoxOfficeRequest(LoadBoxOffice event) {
-        requestQueue.add(new GetBoxOfficeRequest(new Listener<BoxOffice>() {
+        enqueueRequest(new GetBoxOfficeRequest(new Listener<BoxOffice>() {
             @Override
             public void onResponse(BoxOffice boxOffice) {
                 EventBus.getInstance().post(boxOffice);
@@ -29,5 +30,9 @@ public class ApiRequestHandler {
                 EventBus.getInstance().post(volleyError);
             }
         }));
+    }
+
+    private void enqueueRequest(Request<?> request) {
+        requestQueue.add(request);
     }
 }

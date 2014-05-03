@@ -29,8 +29,6 @@ public class DetailActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-
         movie = Parcels.unwrap(getIntent().getParcelableExtra(EXTRA_MOVIE));
     }
 
@@ -63,10 +61,7 @@ public class DetailActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-            return true;
-        } else if (item.getItemId() == R.id.play_trailer) {
+        if (item.getItemId() == R.id.play_trailer) {
             playTrailer();
             return true;
         } else {

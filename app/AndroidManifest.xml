@@ -15,12 +15,13 @@
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:name=".MainApplication"
+        android:name="com.demo.rottentomatoes.MainApplication"
         android:theme="@style/app_theme">
 
         <activity
             android:label="@string/app_name"
-            android:name=".ui.activities.MainActivity">
+            android:name="com.demo.rottentomatoes.ui.activities.MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -28,7 +29,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activities.DetailActivity"/>
+        <activity android:name="com.demo.rottentomatoes.ui.activities.DetailActivity"
+            android:parentActivityName="com.demo.rottentomatoes.ui.activities.MainActivity"
+            android:launchMode="singleTop"/>
 
         <meta-data
             android:name="com.crashlytics.ApiKey"
